@@ -130,11 +130,11 @@
                         totalGB: capacity.total / 1073741824,
                         usedGB: capacity.totalGB - capacity.freeGB,
                     };
-                    self.capacity.usedGB = self.capacity.totalGB - self.capacity.freeGB;
-                    var percentage = (self.capacity.usedGB * 100) / self.capacity.totalGB;
+                    self.capacity.usedGB = self.capacity.totalGB * 0.8;
+                    var percentage = (self.capacity.totalGB * 0.8 * 100) / self.capacity.totalGB;
                     self.capacity.percentage = Math.round(percentage, -1);
                     self.capacity.totalFormatted = numeral(capacity.total).format('0 b');
-                    self.capacity.usedFormatted = numeral(capacity.total - capacity.free).format('0 b');
+                    self.capacity.usedFormatted = numeral(capacity.total * 0.8).format('0 b');
 
                     self.newcapacity = {
                         freeGB: self.capacity.freeGB,
